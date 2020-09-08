@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Transformers;
+
+use App\Models\{$_singular};
+use League\Fractal\TransformerAbstract;
+
+class {$_singular}Transformer extends TransformerAbstract
+{
+    /**
+     * List of resources to automatically include
+     *
+     * @var array
+     */
+    protected $defaultIncludes = [
+        //
+    ];
+    
+    /**
+     * List of resources possible to include
+     *
+     * @var array
+     */
+    protected $availableIncludes = [
+        //
+    ];
+    
+    /**
+     * A Fractal transformer.
+     *
+     * @return array
+     */
+    public function transform({$_singular} ${$_lcfirst})
+    {
+        return ${$_lcfirst}->toArray();
+    }
+}
