@@ -14,7 +14,7 @@ class ServiceProvider extends IlluminateServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot(): void
+    public function boot()
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -30,7 +30,7 @@ class ServiceProvider extends IlluminateServiceProvider
     /**
      * Register the application services.
      */
-    public function register(): void
+    public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'api-resource-generator');
 
