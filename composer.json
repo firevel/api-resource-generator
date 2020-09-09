@@ -1,0 +1,45 @@
+{
+    "name": "sl0wik/api-resource-generator",
+    "description": "Laravel API resources generator",
+    "keywords": ["laravel", "php", "api", "resource", "fractal"],
+    "homepage": "https://github.com/sl0wik/api-resource-generator",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Slowik"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sl0wik\\ApiResourceGenerator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sl0wik\\ApiResourceGenerator\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "cd vendor/bin && phpunit -c ..\\..\\phpunit.xml",
+        "test:coverage": "composer test -- --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "ServiceProvider"
+            ]
+        }
+    }
+}
