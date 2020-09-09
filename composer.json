@@ -38,7 +38,7 @@
     "extra": {
         "laravel": {
             "providers": [
-              "ServiceProvider"
+                "Firevel\\ApiResourceGenerator\\LaravelEloquentSequencerServiceProvider"
             ]
         }
     }
