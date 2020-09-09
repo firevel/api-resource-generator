@@ -1,8 +1,8 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Factories;
+namespace Firevel\ApiResourceGenerator\Factories;
 
-use Sl0wik\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\Resource;
 
 /**
  * Interface ResourceFileFactory

@@ -1,12 +1,12 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Tests;
+namespace Firevel\ApiResourceGenerator\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
-use Sl0wik\ApiResourceGenerator\FileMakerFacade as FileMaker;
-use Sl0wik\ApiResourceGenerator\Resource;
-use Sl0wik\ApiResourceGenerator\Factories\ResourceModelFileFactory;
-use Sl0wik\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
+use Firevel\ApiResourceGenerator\FileMakerFacade as FileMaker;
+use Firevel\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\Factories\ResourceModelFileFactory;
+use Firevel\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
 
 class ResourceModelFileFactoryTest extends TestCase
 {

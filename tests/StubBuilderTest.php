@@ -1,9 +1,9 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Tests;
+namespace Firevel\ApiResourceGenerator\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
-use Sl0wik\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
+use Firevel\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
 
 class StubBuilderTest extends TestCase
 {

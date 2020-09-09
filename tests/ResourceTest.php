@@ -1,10 +1,10 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Tests;
+namespace Firevel\ApiResourceGenerator\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Str;
-use Sl0wik\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\Resource;
 
 class ResourceTest extends TestCase
 {

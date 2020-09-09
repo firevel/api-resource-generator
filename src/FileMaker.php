@@ -1,6 +1,6 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
 /**
  * Class FileMaker

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
