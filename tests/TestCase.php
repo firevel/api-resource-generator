@@ -1,9 +1,9 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Tests;
+namespace Firevel\ApiResourceGenerator\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Sl0wik\ApiResourceGenerator\ServiceProvider;
+use Firevel\ApiResourceGenerator\ServiceProvider;
 
 class TestCase extends Orchestra
 {

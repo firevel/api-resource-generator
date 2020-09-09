@@ -1,11 +1,11 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Tests;
+namespace Firevel\ApiResourceGenerator\Tests;
 
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Artisan;
-use Sl0wik\ApiResourceGenerator\Factories\ResourceUnitTestFileFactory;
-use Sl0wik\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\Factories\ResourceUnitTestFileFactory;
+use Firevel\ApiResourceGenerator\Resource;
 
 class ResourceUnitTestFileFactoryTest extends TestCase
 {

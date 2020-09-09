@@ -1,14 +1,14 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Factories;
+namespace Firevel\ApiResourceGenerator\Factories;
 
-use Sl0wik\ApiResourceGenerator\FileMakerFacade as FileMaker;
-use Sl0wik\ApiResourceGenerator\Resource;
-use Sl0wik\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
+use Firevel\ApiResourceGenerator\FileMakerFacade as FileMaker;
+use Firevel\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
 
 /**
  * Class ResourceModelFileFactory
- * @package Sl0wik\ApiResourceGenerator\Factories
+ * @package Firevel\ApiResourceGenerator\Factories
  */
 class ResourceModelFileFactory implements ResourceFileFactory
 {

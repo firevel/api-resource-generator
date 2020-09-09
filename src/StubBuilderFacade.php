@@ -1,12 +1,12 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class StubBuilderFacade
- * @package Sl0wik\ApiResourceGenerator
+ * @package Firevel\ApiResourceGenerator
  */
 class StubBuilderFacade extends Facade
 {

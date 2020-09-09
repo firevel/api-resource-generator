@@ -1,13 +1,13 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
-use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;;
-use Sl0wik\ApiResourceGenerator\Console\Commands\MakeApiResource;
+use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
+use Firevel\ApiResourceGenerator\Console\Commands\MakeApiResource;
 
 /**
  * Class ServiceProvider
- * @package Sl0wik\ApiResourceGenerator
+ * @package Firevel\ApiResourceGenerator
  */
 class ServiceProvider extends IlluminateServiceProvider
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Console\Commands;
+namespace Firevel\ApiResourceGenerator\Console\Commands;
 
 use Illuminate\Console\Command;
-use Sl0wik\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\Resource;
 
 class MakeApiResource extends Command
 {

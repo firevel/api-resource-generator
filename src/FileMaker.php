@@ -1,10 +1,10 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
 /**
  * Class FileMaker
- * @package Sl0wik\ApiResourceGenerator
+ * @package Firevel\ApiResourceGenerator
  */
 class FileMaker
 {

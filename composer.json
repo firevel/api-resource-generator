@@ -1,8 +1,8 @@
 {
-    "name": "sl0wik/api-resource-generator",
+    "name": "firevel/api-resource-generator",
     "description": "Laravel API resources generator",
     "keywords": ["laravel", "php", "api", "resource", "fractal"],
-    "homepage": "https://github.com/sl0wik/api-resource-generator",
+    "homepage": "https://github.com/firevel/api-resource-generator",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Sl0wik\\ApiResourceGenerator\\": "src"
+            "Firevel\\ApiResourceGenerator\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sl0wik\\ApiResourceGenerator\\Tests\\": "tests"
+            "Firevel\\ApiResourceGenerator\\Tests\\": "tests"
         }
     },
     "scripts": {

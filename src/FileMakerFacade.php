@@ -1,12 +1,12 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class FileMakerFacade
- * @package Sl0wik\ApiResourceGenerator
+ * @package Firevel\ApiResourceGenerator
  */
 class FileMakerFacade extends Facade
 {

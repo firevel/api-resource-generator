@@ -5,7 +5,7 @@
 You can install the package via composer:
 
 ``` bash
-composer require sl0wik/api-resource-generator
+composer require firevel/api-resource-generator
 ```
 
 ## Usage

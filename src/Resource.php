@@ -1,13 +1,13 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator;
+namespace Firevel\ApiResourceGenerator;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
 
 /**
  * Class Resource
- * @package Sl0wik\ApiResourceGenerator
+ * @package Firevel\ApiResourceGenerator
  */
 class Resource implements Arrayable
 {

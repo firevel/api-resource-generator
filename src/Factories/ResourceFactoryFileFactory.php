@@ -1,13 +1,13 @@
 <?php
 
-namespace Sl0wik\ApiResourceGenerator\Factories;
+namespace Firevel\ApiResourceGenerator\Factories;
 
 use Illuminate\Support\Facades\Artisan;
-use Sl0wik\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\Resource;
 
 /**
  * Class ResourceFactoryFileFactory
- * @package Sl0wik\ApiResourceGenerator\Factories
+ * @package Firevel\ApiResourceGenerator\Factories
  */
 class ResourceFactoryFileFactory implements ResourceFileFactory
 {
