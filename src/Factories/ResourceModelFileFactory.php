@@ -26,8 +26,18 @@ class ResourceModelFileFactory extends StubbedResourceFileFactory
      * @param Resource $resource
      * @return string
      */
-    static function getFilePath(Resource $resource): string
+    static function getFileName(Resource $resource): string
     {
-        return app_path("Models/{$resource->singularPascal()}.php");
+        return "{$resource->singularPascal()}.php";
+    }
+
+    /**
+     * Get resource file directory.
+     *
+     * @return string
+     */
+    static function getFileDirectory(): string
+    {
+        return app_path('Models');
     }
 }

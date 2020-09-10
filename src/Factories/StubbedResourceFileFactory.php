@@ -2,6 +2,7 @@
 
 namespace Firevel\ApiResourceGenerator\Factories;
 
+use Firevel\ApiResourceGenerator\DirectoryMakerFacade as DirectoryMaker;
 use Firevel\ApiResourceGenerator\FileMakerFacade as FileMaker;
 use Firevel\ApiResourceGenerator\Resource;
 use Firevel\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
@@ -19,8 +20,12 @@ abstract class StubbedResourceFileFactory implements ResourceFileFactory
      */
     public static function handle(Resource $resource): void
     {
+        $directory = static::getFileDirectory();
+
+        DirectoryMaker::findOrMake($directory);
+
         $content = StubBuilder::build(static::getFileType(), $resource->toArray());
-        $path = static::getFilePath($resource);
+        $path = $directory . '/' . static::getFileName($resource);
 
         FileMaker::make($path, $content);
     }
@@ -33,10 +38,17 @@ abstract class StubbedResourceFileFactory implements ResourceFileFactory
     abstract static function getFileType(): string;
 
     /**
-     * Get resource file path.
+     * Get resource file name.
      *
      * @param Resource $resource
      * @return string
      */
-    abstract static function getFilePath(Resource $resource): string;
+    abstract static function getFileName(Resource $resource): string;
+
+    /**
+     * Get resource file directory.
+     *
+     * @return string
+     */
+    abstract static function getFileDirectory(): string;
 }

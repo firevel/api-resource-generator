@@ -26,8 +26,18 @@ class ResourceControllerFileFactory extends StubbedResourceFileFactory
      * @param Resource $resource
      * @return string
      */
-    static function getFilePath(Resource $resource): string
+    static function getFileName(Resource $resource): string
     {
-        return app_path("Http/Controllers/Api/{$resource->pluralPascal()}Controller.php");
+        return "{$resource->pluralPascal()}Controller.php";
+    }
+
+    /**
+     * Get resource file directory.
+     *
+     * @return string
+     */
+    static function getFileDirectory(): string
+    {
+        return app_path('Http/Controllers/Api');
     }
 }
