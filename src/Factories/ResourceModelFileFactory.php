@@ -15,7 +15,7 @@ class ResourceModelFileFactory extends StubbedResourceFileFactory
      *
      * @return string
      */
-    static function getFileType(): string
+    protected static function getFileType(): string
     {
         return 'model';
     }
@@ -26,7 +26,7 @@ class ResourceModelFileFactory extends StubbedResourceFileFactory
      * @param Resource $resource
      * @return string
      */
-    static function getFileName(Resource $resource): string
+    protected static function getFileName(Resource $resource): string
     {
         return "{$resource->singularPascal()}.php";
     }
@@ -36,7 +36,7 @@ class ResourceModelFileFactory extends StubbedResourceFileFactory
      *
      * @return string
      */
-    static function getFileDirectory(): string
+    protected static function getFileDirectory(): string
     {
         return app_path('Models');
     }

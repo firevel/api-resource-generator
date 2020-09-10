@@ -35,7 +35,7 @@ abstract class StubbedResourceFileFactory implements ResourceFileFactory
      *
      * @return string
      */
-    abstract static function getFileType(): string;
+    abstract protected static function getFileType(): string;
 
     /**
      * Get resource file name.
@@ -43,12 +43,12 @@ abstract class StubbedResourceFileFactory implements ResourceFileFactory
      * @param Resource $resource
      * @return string
      */
-    abstract static function getFileName(Resource $resource): string;
+    abstract protected static function getFileName(Resource $resource): string;
 
     /**
      * Get resource file directory.
      *
      * @return string
      */
-    abstract static function getFileDirectory(): string;
+    abstract protected static function getFileDirectory(): string;
 }
