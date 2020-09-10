@@ -41,5 +41,9 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->app->bind('FileMaker', function () {
             return new FileMaker();
         });
+
+        $this->app->bind('DirectoryMaker', function () {
+            return new DirectoryMaker();
+        });
     }
 }
