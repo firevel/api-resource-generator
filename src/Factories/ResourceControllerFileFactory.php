@@ -2,26 +2,32 @@
 
 namespace Firevel\ApiResourceGenerator\Factories;
 
-use Firevel\ApiResourceGenerator\FileMakerFacade as FileMaker;
 use Firevel\ApiResourceGenerator\Resource;
-use Firevel\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
 
 /**
  * Class ResourceControllerFileFactory
  * @package Firevel\ApiResourceGenerator\Factories
  */
-class ResourceControllerFileFactory implements ResourceFileFactory
+class ResourceControllerFileFactory extends StubbedResourceFileFactory
 {
     /**
-     * Create a controller for the resource.
+     * Get resource file type.
+     *
+     * @return string
+     */
+    static function getFileType(): string
+    {
+        return 'api-controller';
+    }
+
+    /**
+     * Get resource file path.
      *
      * @param Resource $resource
+     * @return string
      */
-    public static function handle(Resource $resource): void
+    static function getFilePath(Resource $resource): string
     {
-        $content = StubBuilder::build('api-controller', $resource->toArray());
-        $path = app_path("Http/Controllers/Api/{$resource->pluralPascal()}Controller.php");
-
-        FileMaker::make($path, $content);
+        return app_path("Http/Controllers/Api/{$resource->pluralPascal()}Controller.php");
     }
 }

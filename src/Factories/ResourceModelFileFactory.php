@@ -2,26 +2,32 @@
 
 namespace Firevel\ApiResourceGenerator\Factories;
 
-use Firevel\ApiResourceGenerator\FileMakerFacade as FileMaker;
 use Firevel\ApiResourceGenerator\Resource;
-use Firevel\ApiResourceGenerator\StubBuilderFacade as StubBuilder;
 
 /**
  * Class ResourceModelFileFactory
  * @package Firevel\ApiResourceGenerator\Factories
  */
-class ResourceModelFileFactory implements ResourceFileFactory
+class ResourceModelFileFactory extends StubbedResourceFileFactory
 {
     /**
-     * Create a model for the resource.
+     * Get resource file type.
+     *
+     * @return string
+     */
+    static function getFileType(): string
+    {
+        return 'model';
+    }
+
+    /**
+     * Get resource file path.
      *
      * @param Resource $resource
+     * @return string
      */
-    public static function handle(Resource $resource): void
+    static function getFilePath(Resource $resource): string
     {
-        $content = StubBuilder::build('model', $resource->toArray());
-        $path = app_path("Models/{$resource->singularPascal()}.php");
-
-        FileMaker::make($path, $content);
+        return app_path("Models/{$resource->singularPascal()}.php");
     }
 }
