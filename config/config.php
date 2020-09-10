@@ -15,5 +15,6 @@ return [
         'Migration',
         'UnitTest',
         'Factory',
+        'Transformer',
     ]
 ];
