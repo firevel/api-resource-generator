@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\{$_singular};
+use App\Http\Requests\{$_singular_pascal}\Destroy{$_singular_pascal};
+use App\Http\Requests\{$_singular_pascal}\Index{$_plural_pascal};
+use App\Http\Requests\{$_singular_pascal}\Store{$_singular_pascal};
+use App\Http\Requests\{$_singular_pascal}\Show{$_singular_pascal};
+use App\Http\Requests\{$_singular_pascal}\Update{$_singular_pascal};
+use App\Models\{$_singular_pascal};
+use App\Transformers\{$_singular_pascal}Transformer;
+use Firevel\ApiResourceGenerator\Controllers\ApiController;
 use Illuminate\Http\Request;
-use App\Http\Requests\{$_singular}\Index{$_plural};
-use App\Http\Requests\{$_singular}\Store{$_singular};
-use App\Http\Requests\{$_singular}\Show{$_singular};
-use App\Http\Requests\{$_singular}\Update{$_singular};
-use App\Http\Requests\{$_singular}\Destroy{$_singular};
-use App\Http\Controllers\Api\ApiController;
-use App\Transformers\{$_singular}Transformer;
 
-class {$_singular}Controller extends ApiController
+class {$_plural_pascal}Controller extends ApiController
 {
     /**
-     * @var App\Transformers\{$_singular}Transformer
+     * @var {$_singular_pascal}Transformer
      */
     protected $transformer;
 
-    public function __construct({$_singular}Transformer $transformer)
+    /**
+     * @param {$_singular_pascal}Transformer $transformer
+     */
+    public function __construct({$_singular_pascal}Transformer $transformer)
     {
         $this->transformer = $transformer;
     }
@@ -27,12 +30,12 @@ class {$_singular}Controller extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @param  \App\Http\Requests\{$_singular}\Index{$_plural}  $request
-     * @return \Illuminate\Http\Response
+     * @param Index{$_plural_pascal} $request
+     * @return Response
      */
-    public function index(Index{$_plural} $request)
+    public function index(Index{$_plural_pascal} $request)
     {
-        ${$_plural_lcfirst} = {$_singular}::filter($request->filter)
+        ${$_plural_lcfirst} = {$_singular_pascal}::filter($request->filter)
             ->visibleBy($request->user())
             ->with($request->getInclude())
             ->sort($request->getSort())
@@ -48,15 +51,15 @@ class {$_singular}Controller extends ApiController
     /**
      * Store a newly created resource.
      *
-     * @param  \App\Http\Requests\{$_singular}\Store{$_singular}  $request
-     * @return \Illuminate\Http\Response
+     * @param Store{$_singular_pascal} $request
+     * @return Response
      */
-    public function store(Store{$_singular} $request)
+    public function store(Store{$_singular_pascal} $request)
     {
-        ${$_lcfirst} = {$_singular}::make($request->all());
-        ${$_lcfirst}->save();
+        ${$_singular_lcfirst} = {$_singular_pascal}::make($request->all());
+        ${$_singular_lcfirst}->save();
 
-        return fractal(${$_lcfirst}, $this->transformer)
+        return fractal(${$_singular_lcfirst}, $this->transformer)
             ->parseIncludes($request->get('include'))
             ->respond();
     }
@@ -64,13 +67,13 @@ class {$_singular}Controller extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Http\Requests\{$_singular}\Show{$_singular}  $request
-     * @param  \App\Models\{$_singular}   ${$_lcfirst}
-     * @return \Illuminate\Http\Response
+     * @param Show{$_singular_pascal} $request
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return Response
      */
-    public function show(Show{$_singular} $request, {$_singular} ${$_lcfirst})
+    public function show(Show{$_singular_pascal} $request, {$_singular_pascal} ${$_singular_lcfirst})
     {
-        return fractal(${$_lcfirst}, $this->transformer)
+        return fractal(${$_singular_lcfirst}, $this->transformer)
             ->parseIncludes($request->get('include'))
             ->respond();
     }
@@ -78,30 +81,30 @@ class {$_singular}Controller extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\{$_singular}\Update{$_singular}  $request
-     * @param  \App\Models\{$_singular}   ${$_lcfirst}
-     * @return \Illuminate\Http\Response
+     * @param Update{$_singular_pascal} $request
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return Response
      */
-    public function update(Update{$_singular} $request, {$_singular} ${$_lcfirst})
+    public function update(Update{$_singular_pascal} $request, {$_singular_pascal} ${$_singular_lcfirst})
     {
-        ${$_lcfirst}->fill($request->all())
+        ${$_singular_lcfirst}->fill($request->all())
             ->save();
 
-        return fractal(${$_lcfirst}, $this->transformer)
-                ->parseIncludes($request->get('include'))
-                ->respond();
+        return fractal(${$_singular_lcfirst}, $this->transformer)
+            ->parseIncludes($request->get('include'))
+            ->respond();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Http\Requests\{$_singular}\Destroy{$_singular}  $request
-     * @param  \App\Models\{$_singular}   ${$_lcfirst}
-     * @return \Illuminate\Http\Response
+     * @param Destroy{$_singular_pascal} $request
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return Response
      */
-    public function destroy(Destroy{$_singular} $request, {$_singular} ${$_lcfirst})
+    public function destroy(Destroy{$_singular_pascal} $request, {$_singular_pascal} ${$_singular_lcfirst})
     {
-        if (${$_lcfirst}->delete()) {
+        if (${$_singular_lcfirst}->delete()) {
             return $this->respondSuccess();
         }
     }
