@@ -37,7 +37,7 @@ class ResourceControllerFileFactoryTest extends TestCase
         $resource = new Resource($this->faker->word);
 
         StubBuilder::shouldReceive('build')
-            ->with('api-controller', $resource->toArray())
+            ->with('controller', $resource->toArray())
             ->once();
 
         ResourceControllerFileFactory::handle($resource);

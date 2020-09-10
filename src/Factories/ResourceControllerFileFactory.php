@@ -17,7 +17,7 @@ class ResourceControllerFileFactory extends StubbedResourceFileFactory
      */
     protected static function getFileType(): string
     {
-        return 'api-controller';
+        return 'controller';
     }
 
     /**
