@@ -113,7 +113,7 @@ class MakeApiResource extends Command
             $this->call('make:request', [
                 'name' => $requestName,
             ]);
-            $this->addUseToFile('App\\Http\\Requests\\ApiRequest', "App/Http/Requests/{$requestName}.php");
+            $this->addUseToFile('Firevel\\ApiResourceGenerator\\Requests\\ApiRequest', "App/Http/Requests/{$requestName}.php");
             $this->addUseToFile("App\\Models\\{$name}", "App/Http/Requests/{$requestName}.php");
             $this->replaceInFile('extends FormRequest', 'extends ApiRequest', "App/Http/Requests/{$requestName}.php");
             $this->replaceInFile('return false;', 'return true;', "App/Http/Requests/{$requestName}.php");
