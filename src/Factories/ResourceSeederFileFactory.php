@@ -28,7 +28,7 @@ class ResourceSeederFileFactory extends StubbedResourceFileFactory
      */
     protected static function getFileName(Resource $resource): string
     {
-        return "{$resource->singularPascal()}TableSeeder.php";
+        return "{$resource->pluralPascal()}TableSeeder.php";
     }
 
     /**
