@@ -54,7 +54,7 @@ class ResourceSeederFileFactoryTest extends TestCase
         StubBuilder::shouldReceive('build')->andReturn($content)->once();
 
         FileMaker::shouldReceive('make')
-            ->with(database_path("seeds/{$resource->singularPascal()}TableSeeder.php"), $content)
+            ->with(database_path("seeders/{$resource->singularPascal()}TableSeeder.php"), $content)
             ->once();
 
         ResourceSeederFileFactory::handle($resource);

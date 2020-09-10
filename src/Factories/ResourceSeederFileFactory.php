@@ -38,6 +38,6 @@ class ResourceSeederFileFactory extends StubbedResourceFileFactory
      */
     protected static function getFileDirectory(): string
     {
-        return database_path('seeds');
+        return database_path('seeders');
     }
 }
