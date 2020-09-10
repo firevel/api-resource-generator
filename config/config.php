@@ -17,5 +17,6 @@ return [
         'Factory',
         'Transformer',
         'Policy',
+        'Seeder',
     ]
 ];
