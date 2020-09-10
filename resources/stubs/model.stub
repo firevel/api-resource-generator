@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class {$_singular} extends Model
+class {$_singular_pascal} extends Model
 {
     use SoftDeletes;
 
@@ -28,7 +28,7 @@ class {$_singular} extends Model
      * Scope a query to apply filters.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param $filters array
+     * @param array $filters
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeFilter($query, $filters)
@@ -51,10 +51,10 @@ class {$_singular} extends Model
      * Scope a query to rows visible by user.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param $user array
+     * @param Authenticatable $user
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeVisibleBy($query, User $user)
+    public function scopeVisibleBy($query, Authenticatable $user)
     {
         return $query;
     }
