@@ -105,6 +105,18 @@ class ResourceTest extends TestCase
     }
 
     /** @test */
+    public function it_has_a_singular_name_with_the_first_character_in_lowercase(): void
+    {
+        $name = $this->faker->sentence;
+
+        $sut = new Resource($name);
+
+        $singularLcFirst = lcfirst(Str::singular($name));
+
+        $this->assertEquals($singularLcFirst, $sut->singularLowercaseFirst());
+    }
+
+    /** @test */
     public function it_can_be_converted_to_an_array(): void
     {
         $name = $this->faker->sentence;
@@ -120,6 +132,7 @@ class ResourceTest extends TestCase
             '{$_plural_snake}' => $sut->pluralSnake(),
             '{$_singular_pascal}' => $sut->singularPascal(),
             '{$_plural_pascal}' => $sut->pluralPascal(),
+            '{$_singular_lcfirst}' => $sut->singularLowercaseFirst(),
         ], $sut->toArray());
     }
 }
