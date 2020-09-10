@@ -9,7 +9,7 @@ use App\Http\Requests\{$_singular}\Store{$_singular};
 use App\Http\Requests\{$_singular}\Show{$_singular};
 use App\Http\Requests\{$_singular}\Update{$_singular};
 use App\Http\Requests\{$_singular}\Destroy{$_singular};
-use App\Http\Controllers\Api\ApiController;
+use Firevel\ApiResourceGenerator\Controllers\ApiController;
 use App\Transformers\{$_singular}Transformer;
 
 class {$_singular}Controller extends ApiController
