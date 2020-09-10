@@ -108,6 +108,15 @@ class Resource implements Arrayable
     }
 
     /**
+     * Get singular resource name with the first character in lower case.
+     * @return string
+     */
+    public function singularLowercaseFirst(): string
+    {
+        return lcfirst($this->singular());
+    }
+
+    /**
      * Get all forms of the resource name as an array.
      *
      * @return array
@@ -123,6 +132,7 @@ class Resource implements Arrayable
             '{$_plural_snake}' => $this->pluralSnake(),
             '{$_singular_pascal}' => $this->singularPascal(),
             '{$_plural_pascal}' => $this->pluralPascal(),
+            '{$_singular_lcfirst}' => $this->singularLowercaseFirst(),
         ];
     }
 }
