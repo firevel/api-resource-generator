@@ -25,6 +25,10 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('api-resource-generator.php'),
         ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../resources/stubs' => resource_path('stubs'),
+        ]);
     }
 
     /**
