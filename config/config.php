@@ -1,5 +1,19 @@
 <?php
 
 return [
-  'stubs_path' => resource_path('stubs'),
+    /*
+     * Path to the resource stubs.
+     */
+    'stubs_path' => resource_path('stubs'),
+
+    /*
+     * Resource files to be generated.
+     */
+    'types' => [
+        'Model',
+        'Controller',
+        'Migration',
+        'UnitTest',
+        'Factory',
+    ]
 ];

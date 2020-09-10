@@ -2,9 +2,16 @@
 
 namespace Firevel\ApiResourceGenerator\Console\Commands;
 
+use Firevel\ApiResourceGenerator\Factories\ResourceControllerFileFactory;
+use Firevel\ApiResourceGenerator\Factories\ResourceModelFileFactory;
 use Illuminate\Console\Command;
 use Firevel\ApiResourceGenerator\Resource;
+use Illuminate\Support\Str;
 
+/**
+ * Class MakeApiResource
+ * @package Firevel\ApiResourceGenerator\Console\Commands
+ */
 class MakeApiResource extends Command
 {
     /**
@@ -32,17 +39,14 @@ class MakeApiResource extends Command
 
         $resource = new Resource($name);
 
-        $this->makeModel($resource);
-    }
+        foreach (config('api-resource-generator.types') as $type) {
+            $name = "\\Firevel\\ApiResourceGenerator\\Factories\\Resource{$type}FileFactory";
 
-    /**
-     * Make model.
-     *
-     * @param Resource $resource
-     * @return void
-     */
-    public function makeModel(Resource $resource): void
-    {
-        $this->info("{$resource->singularCamel()} model created.");
+            ($name)::handle($resource);
+
+            $this->info("{$resource->singularPascal()} {$type} created.");
+        }
+
+        $this->info('Done.');
     }
 }
