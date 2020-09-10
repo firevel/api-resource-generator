@@ -38,8 +38,9 @@ class MakeApiResource extends Command
         $name = $this->argument('name');
 
         $resource = new Resource($name);
+        $resourceFileTypes = config('api-resource-generator.types');
 
-        foreach (config('api-resource-generator.types') as $type) {
+        foreach ($resourceFileTypes as $type) {
             $name = "\\Firevel\\ApiResourceGenerator\\Factories\\Resource{$type}FileFactory";
 
             ($name)::handle($resource);
