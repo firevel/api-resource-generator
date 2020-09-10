@@ -48,6 +48,18 @@ class MakeApiResource extends Command
             $this->info("{$resource->singularPascal()} {$type} created.");
         }
 
-        $this->info('Done.');
+        $this->info("\n");
+        $this->info('To do:');
+        $this->info("1. Setup schema in migration file.");
+        $this->info("2. Setup \$fillables in model file.");
+        $this->info("3. Setup permissions in policy file.");
+        $this->info("4. Setup transformer.");
+        $this->info("5. Setup api route: Route::apiResource('{$resource->pluralSnake()}', '{$resource->pluralPascal()}Controller');.");
+        $this->info("\n");
+        $this->info('Optional:');
+        $this->info("- Setup model factory.");
+        $this->info("- Setup model seeder.");
+        $this->info("- Setup validation at requests.");
+        $this->info("- Setup unit tests for your model.");
     }
 }

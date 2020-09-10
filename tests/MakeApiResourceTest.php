@@ -31,7 +31,6 @@ class MakeApiResourceTest extends TestCase
         $this->artisan("make:api-resource {$resource->raw()}")
             ->expectsOutput("{$resource->singularPascal()} Model created.")
             ->expectsOutput("{$resource->singularPascal()} Controller created.")
-            ->expectsOutput('Done.')
             ->assertExitCode(0);
     }
 }
