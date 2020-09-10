@@ -72,7 +72,7 @@ class MakeApiResource extends Command
         $this->info("2. Setup fillables in model file.");
         $this->info("3. Setup permissions in policy file.");
         $this->info("4. Setup transformer.");
-        $this->info("5. Setup api route: Route::apiResource('".Str::plural(Str::snake($name))."', '{$name}Controller']);");
+        $this->info("5. Setup api route: Route::apiResource('".Str::plural(Str::snake($name))."', '{$name}Controller');");
 
         $this->info('Optional:');
         $this->info("- Setup model factory.");
