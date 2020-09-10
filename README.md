@@ -11,6 +11,7 @@ composer require firevel/api-resource-generator
 ## Usage
 
 ``` bash
+php artisan vendor:publish --provider="Firevel\ApiResourceGenerator\ServiceProvider"
 php artisan make:api-resource {name}
 ```
 
