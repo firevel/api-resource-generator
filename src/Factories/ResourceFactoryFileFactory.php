@@ -19,8 +19,8 @@ class ResourceFactoryFileFactory implements ResourceFileFactory
     public static function handle(Resource $resource): void
     {
         Artisan::call('make:factory', [
-            'name' => "{$resource->singularCamel()}Factory",
-            '--model' => "Models\\{$resource->singularCamel()}",
+            'name' => "{$resource->singularPascal()}Factory",
+            '--model' => "Models\\{$resource->singularPascal()}",
         ]);
     }
 }

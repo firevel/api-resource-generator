@@ -18,8 +18,8 @@ class ResourceFactoryFileFactoryTest extends TestCase
 
         Artisan::shouldReceive('call')
             ->with('make:factory', [
-                'name' => "{$resource->singularCamel()}Factory",
-                '--model' => "Models\\{$resource->singularCamel()}",
+                'name' => "{$resource->singularPascal()}Factory",
+                '--model' => "Models\\{$resource->singularPascal()}",
             ])
             ->once();
 
