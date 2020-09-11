@@ -5,10 +5,10 @@ namespace Firevel\ApiResourceGenerator\Factories;
 use Firevel\ApiResourceGenerator\Resource;
 
 /**
- * Class ResourceDestroyRequestFileFactory
+ * Class ResourceUpdateRequestFileFactory
  * @package Firevel\ApiResourceGenerator\Factories
  */
-class ResourceDestroyRequestFileFactory extends StubbedResourceFileFactory
+class ResourceUpdateRequestFileFactory extends StubbedResourceFileFactory
 {
     /**
      * Get resource file type.
@@ -17,7 +17,7 @@ class ResourceDestroyRequestFileFactory extends StubbedResourceFileFactory
      */
     protected static function getFileType(): string
     {
-        return 'requests/destroy';
+        return 'requests/update';
     }
 
     /**
@@ -28,7 +28,7 @@ class ResourceDestroyRequestFileFactory extends StubbedResourceFileFactory
      */
     protected static function getFileName(Resource $resource): string
     {
-        return "Destroy{$resource->singularPascal()}.php";
+        return "Update{$resource->singularPascal()}.php";
     }
 
     /**
