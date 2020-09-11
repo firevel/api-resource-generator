@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\{$_singular};
+use App\Models\{$_singular_pascal};
 use Illuminate\Database\Seeder;
 
-class {$_plural}TableSeeder extends Seeder
+class {$_plural_pascal}TableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class {$_plural}TableSeeder extends Seeder
      */
     public function run()
     {
-        factory({$_singular}::class, 10)->create();
+        factory({$_singular_pascal}::class, 10)->create();
     }
 }
