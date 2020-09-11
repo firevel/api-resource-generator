@@ -20,7 +20,7 @@ abstract class StubbedResourceFileFactory implements ResourceFileFactory
      */
     public static function handle(Resource $resource): void
     {
-        $directory = static::getFileDirectory();
+        $directory = static::getFileDirectory($resource);
 
         DirectoryMaker::findOrMake($directory);
 
@@ -48,7 +48,8 @@ abstract class StubbedResourceFileFactory implements ResourceFileFactory
     /**
      * Get resource file directory.
      *
+     * @param Resource $resource
      * @return string
      */
-    abstract protected static function getFileDirectory(): string;
+    abstract protected static function getFileDirectory(Resource $resource): string;
 }

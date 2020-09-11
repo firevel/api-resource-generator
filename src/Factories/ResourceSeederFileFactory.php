@@ -34,9 +34,10 @@ class ResourceSeederFileFactory extends StubbedResourceFileFactory
     /**
      * Get resource file directory.
      *
+     * @param Resource $resource
      * @return string
      */
-    protected static function getFileDirectory(): string
+    protected static function getFileDirectory(Resource $resource): string
     {
         return database_path('seeders');
     }
