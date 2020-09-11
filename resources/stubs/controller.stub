@@ -41,7 +41,7 @@ class {$_plural_pascal}Controller extends Controller
     {
         ${$_plural_lcfirst} = {$_singular_pascal}::filter($request->filter)
             ->visibleBy($request->user())
-            ->with($request->getInclude())
+            ->with($request->getIncludes())
             ->sort($request->getSort())
             ->paginate(
                 $request->getPageSize()
