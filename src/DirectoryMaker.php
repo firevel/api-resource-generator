@@ -15,8 +15,8 @@ class DirectoryMaker
      */
     public function findOrMake(string $directory): void
     {
-        if (! is_dir($directory)) {
-            mkdir($directory);
-        }
+         if (! file_exists($directory)) {
+            mkdir($directory, 0777, true);
+         }
     }
 }
