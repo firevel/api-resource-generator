@@ -19,5 +19,8 @@ return [
         'Policy',
         'Seeder',
         'IndexRequest',
+        'ShowRequest',
+        'DestroyRequest',
+        'UpdateRequest',
     ]
 ];
