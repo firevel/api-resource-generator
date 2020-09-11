@@ -18,5 +18,6 @@ return [
         'Transformer',
         'Policy',
         'Seeder',
+        'IndexRequest',
     ]
 ];
