@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\{$_singular_pascal};
 
-use App\Models\{$_singular_pascal};
 use Firevel\ApiResourceGenerator\Http\Requests\ApiRequest;
-use Illuminate\Foundation\Http\FormRequest;
 
 class Index{$_plural_pascal} extends ApiRequest
 {
