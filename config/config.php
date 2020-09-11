@@ -22,5 +22,6 @@ return [
         'ShowRequest',
         'DestroyRequest',
         'UpdateRequest',
+        'StoreRequest',
     ]
 ];
