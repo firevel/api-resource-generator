@@ -60,7 +60,7 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function store(Store{$_singular_pascal} $request)
     {
-        ${$_singular_lcfirst} = {$_singular_pascal}::make($request->all());
+        ${$_singular_lcfirst} = {$_singular_pascal}::make($request->validated());
         ${$_singular_lcfirst}->save();
 
         return fractal(${$_singular_lcfirst}, $this->transformer)
@@ -91,7 +91,7 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function update(Update{$_singular_pascal} $request, {$_singular_pascal} ${$_singular_lcfirst})
     {
-        ${$_singular_lcfirst}->fill($request->all())
+        ${$_singular_lcfirst}->fill($request->validated())
             ->save();
 
         return fractal(${$_singular_lcfirst}, $this->transformer)
