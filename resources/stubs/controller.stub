@@ -27,8 +27,8 @@ class {$_plural_pascal}Controller extends Controller
     public function __construct({$_singular_pascal}Transformer $transformer)
     {
         $this->transformer = $transformer;
-        
-        $this->authorizeResource({$_singular_pascal}::class, {$_singular_camel});
+
+        $this->authorizeResource({$_singular_pascal}::class, '{$_singular_camel}');
     }
 
     /**
