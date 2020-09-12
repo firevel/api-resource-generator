@@ -1,0 +1,23 @@
+<?php
+
+namespace Tests\Feature\{$_plural_pascal};
+
+use App\Models\{$_singular_pascal};
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase;
+
+class Destroy{$_plural_pascal}Test extends TestCase
+{
+    use DatabaseTransactions;
+
+    /** @test */
+    public function a_{$_singular_snake}_can_be_deleted()
+    {
+        ${$_singular_camel} = factory({$_singular_pascal}::class)->create();
+
+        $this->delete("{$_plural_kebab}/{${$_singular_camel}->getRouteKey()}")
+            ->assertStatus(204);
+
+        $this->assertDatabaseMissing('{$_plural_snake}', ${$_singular_camel}->toArray());
+    }
+}
