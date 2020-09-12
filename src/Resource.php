@@ -136,6 +136,15 @@ class Resource implements Arrayable
     }
 
     /**
+     * Get plural resource name in kebab case.
+     * @return string
+     */
+    public function pluralKebab(): string
+    {
+        return Str::kebab($this->plural());
+    }
+
+    /**
      * Get all forms of the resource name as an array.
      *
      * @return array
@@ -154,6 +163,7 @@ class Resource implements Arrayable
             '{$_plural_pascal}' => $this->pluralPascal(),
             '{$_singular_lcfirst}' => $this->singularLowercaseFirst(),
             '{$_plural_lcfirst}' => $this->pluralLowercaseFirst(),
+            '{$_plural_kebab}' => $this->pluralKebab(),
         ];
     }
 }
