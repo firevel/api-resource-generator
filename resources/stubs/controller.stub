@@ -11,6 +11,7 @@ use App\Http\Requests\{$_singular_pascal}\Update{$_singular_pascal};
 use App\Models\{$_singular_pascal};
 use App\Transformers\{$_singular_pascal}Transformer;
 use Firevel\ApiResourceGenerator\Traits\RespondsWithJson;
+use Illuminate\Support\Facades\Response;
 
 class {$_plural_pascal}Controller extends Controller
 {
@@ -108,8 +109,8 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function destroy(Destroy{$_singular_pascal} $request, {$_singular_pascal} ${$_singular_lcfirst})
     {
-        if (${$_singular_lcfirst}->delete()) {
-            return $this->respondSuccess();
-        }
+        ${$_singular_lcfirst}->delete();
+
+        return Response::json(null, 204);
     }
 }
