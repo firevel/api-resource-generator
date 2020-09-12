@@ -19,7 +19,7 @@ class ResourceMigrationFileFactoryTest extends TestCase
         Artisan::shouldReceive('call')
             ->with('make:migration', [
                 'name' => "create_{$resource->pluralSnake()}_table",
-                '--table' => $resource->pluralSnake(),
+                '--create' => $resource->pluralSnake(),
             ])
             ->once();
 
