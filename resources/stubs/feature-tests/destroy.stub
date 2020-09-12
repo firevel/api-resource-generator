@@ -15,7 +15,7 @@ class Destroy{$_plural_pascal}Test extends TestCase
     {
         ${$_singular_camel} = factory({$_singular_pascal}::class)->create();
 
-        $this->delete("api/{$_plural_kebab}/{${$_singular_camel}->getRouteKey()}")
+        $this->json('delete', "api/{$_plural_kebab}/{${$_singular_camel}->getRouteKey()}")
             ->assertStatus(204);
 
         $this->assertDatabaseMissing('{$_plural_snake}', ${$_singular_camel}->toArray());
