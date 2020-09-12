@@ -39,7 +39,7 @@ class {$_plural_pascal}Controller extends Controller
      * Display a list of {$_plural}.
      *
      * @queryParam include Relationships to be added to the response.
-     * @queryParam sort Fields to sort by separated by a comma. Example: id,name
+     * @queryParam sort Fields to sort by separated by a comma. Example: id
      * @queryParam page[size] Example: 24
      * @transformerCollection \App\Transformers\{$_singular_pascal}Transformer
      *
@@ -49,7 +49,7 @@ class {$_plural_pascal}Controller extends Controller
     public function index(Index{$_plural_pascal} $request)
     {
         ${$_plural_lcfirst} = {$_singular_pascal}::filter($request->filter)
-            ->visibleBy($request->user())
+            // ->visibleBy($request->user())
             ->with($request->getIncludes())
             ->sort($request->getSort())
             ->paginate(
