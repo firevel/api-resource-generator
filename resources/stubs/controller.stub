@@ -35,7 +35,9 @@ class {$_plural_pascal}Controller extends Controller
     }
 
     /**
-     * Display a listing of {$_plural}.
+     * Display a list of {$_plural}.
+     *
+     * @transformerCollection  \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Index{$_plural_pascal} $request
      * @return Response
@@ -58,6 +60,8 @@ class {$_plural_pascal}Controller extends Controller
     /**
      * Create a new {$_singular}.
      *
+     * @transformer  \App\Transformers\{$_singular_pascal}Transformer
+     *
      * @param Store{$_singular_pascal} $request
      * @return Response
      */
@@ -74,6 +78,8 @@ class {$_plural_pascal}Controller extends Controller
     /**
      * Display the specified {$_singular}.
      *
+     * @transformer  \App\Transformers\{$_singular_pascal}Transformer
+     *
      * @param Show{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
      * @return Response
@@ -87,6 +93,8 @@ class {$_plural_pascal}Controller extends Controller
 
     /**
      * Update the specified {$_singular}.
+     *
+     * @transformer  \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Update{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
