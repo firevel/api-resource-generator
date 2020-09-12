@@ -94,6 +94,8 @@ class {$_plural_pascal}Controller extends Controller
     /**
      * Update the specified {$_singular}.
      *
+     * @urlParam id required The ID of the {$_singular}.
+     *
      * @transformer  \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Update{$_singular_pascal} $request
@@ -112,6 +114,8 @@ class {$_plural_pascal}Controller extends Controller
 
     /**
      * Remove the specified {$_singular}.
+     *
+     * @urlParam id required The ID of the {$_singular}.
      *
      * @param Destroy{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
