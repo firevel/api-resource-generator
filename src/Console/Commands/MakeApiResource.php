@@ -55,9 +55,9 @@ class MakeApiResource extends Command
         $this->info('3. Setup permissions in policy file.');
         $this->info('4. Setup the transformer.');
         $this->info('6. Register the policy:');
-        $this->info("\t{$resource->pluralPascal()}::class => {$resource->pluralPascal()}Policy::class,");
+        $this->info("   {$resource->pluralPascal()}::class => {$resource->pluralPascal()}Policy::class,");
         $this->info('5. Register the API route:');
-        $this->info("\tRoute::apiResource('{$resource->pluralSnake()}', '{$resource->pluralPascal()}Controller');.");
+        $this->info("   Route::apiResource('{$resource->pluralSnake()}', '{$resource->pluralPascal()}Controller');");
         $this->info("\n");
         $this->info('Optional:');
         $this->info('- Setup model factory.');
@@ -66,6 +66,6 @@ class MakeApiResource extends Command
         $this->info('- Setup unit tests for your model.');
         $this->info('- Seed the database.');
         $this->info('- Publish your documentation:');
-        $this->info("\tphp artisan apidoc:generate");
+        $this->info("  php artisan apidoc:generate");
     }
 }
