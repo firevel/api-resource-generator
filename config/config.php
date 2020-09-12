@@ -23,5 +23,6 @@ return [
         'DestroyRequest',
         'UpdateRequest',
         'StoreRequest',
+        'DestroyFeatureTest',
     ]
 ];
