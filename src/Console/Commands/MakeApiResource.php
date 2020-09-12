@@ -57,7 +57,7 @@ class MakeApiResource extends Command
         $this->info('6. Register the policy:');
         $this->info("   {$resource->pluralPascal()}::class => {$resource->pluralPascal()}Policy::class,");
         $this->info('5. Register the API route:');
-        $this->info("   Route::apiResource('{$resource->pluralSnake()}', '{$resource->pluralPascal()}Controller');");
+        $this->info("   Route::apiResource('{$resource->pluralSnake()}', 'Api\\{$resource->pluralPascal()}Controller');");
         $this->info("\n");
         $this->info('Optional:');
         $this->info('- Setup model factory.');
