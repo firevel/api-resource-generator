@@ -38,7 +38,10 @@ class {$_plural_pascal}Controller extends Controller
     /**
      * Display a list of {$_plural}.
      *
-     * @transformerCollection  \App\Transformers\{$_singular_pascal}Transformer
+     * @queryParam include Relationships to be added to the response.
+     * @queryParam sort Fields to sort by separated by a comma. Example: id,name
+     * @queryParam page[size] Example: 24
+     * @transformerCollection \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Index{$_plural_pascal} $request
      * @return Response
@@ -61,7 +64,8 @@ class {$_plural_pascal}Controller extends Controller
     /**
      * Create a new {$_singular}.
      *
-     * @transformer  \App\Transformers\{$_singular_pascal}Transformer
+     * @queryParam include Relationships to be added to the response.
+     * @transformer \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Store{$_singular_pascal} $request
      * @return Response
@@ -79,7 +83,8 @@ class {$_plural_pascal}Controller extends Controller
     /**
      * Display the specified {$_singular}.
      *
-     * @transformer  \App\Transformers\{$_singular_pascal}Transformer
+     * @queryParam include Relationships to be added to the response.
+     * @transformer \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Show{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
@@ -96,8 +101,8 @@ class {$_plural_pascal}Controller extends Controller
      * Update the specified {$_singular}.
      *
      * @urlParam id required The ID of the {$_singular}.
-     *
-     * @transformer  \App\Transformers\{$_singular_pascal}Transformer
+     * @queryParam include Relationships to be added to the response.
+     * @transformer \App\Transformers\{$_singular_pascal}Transformer
      *
      * @param Update{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
