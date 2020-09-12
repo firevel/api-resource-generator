@@ -63,5 +63,7 @@ class MakeApiResource extends Command
         $this->info('- Setup validation at requests.');
         $this->info('- Setup unit tests for your model.');
         $this->info('- Seed the database.');
+        $this->info('- Publish your documentation:');
+        $this->info("\t\tphp artisan apidoc:generate");
     }
 }
