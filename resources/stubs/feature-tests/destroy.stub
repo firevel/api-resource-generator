@@ -3,12 +3,12 @@
 namespace Tests\Feature\{$_plural_pascal};
 
 use App\Models\{$_singular_pascal};
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class Destroy{$_plural_pascal}Test extends TestCase
 {
-    use DatabaseTransactions;
+    use RefreshDatabase;
 
     /** @test */
     public function a_{$_singular_snake}_can_be_deleted()
