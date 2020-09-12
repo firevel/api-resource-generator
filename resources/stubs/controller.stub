@@ -12,6 +12,9 @@ use App\Models\{$_singular_pascal};
 use App\Transformers\{$_singular_pascal}Transformer;
 use Firevel\ApiResourceGenerator\Traits\RespondsWithJson;
 
+/**
+ * @group {$_singular_pascal} management
+ */
 class {$_plural_pascal}Controller extends Controller
 {
     use RespondsWithJson;
@@ -32,7 +35,7 @@ class {$_plural_pascal}Controller extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of {$_plural}.
      *
      * @param Index{$_plural_pascal} $request
      * @return Response
@@ -53,7 +56,7 @@ class {$_plural_pascal}Controller extends Controller
     }
 
     /**
-     * Store a newly created resource.
+     * Create a new {$_singular}.
      *
      * @param Store{$_singular_pascal} $request
      * @return Response
@@ -69,7 +72,7 @@ class {$_plural_pascal}Controller extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified {$_singular}.
      *
      * @param Show{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
@@ -83,7 +86,7 @@ class {$_plural_pascal}Controller extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified {$_singular}.
      *
      * @param Update{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
@@ -100,7 +103,7 @@ class {$_plural_pascal}Controller extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified {$_singular}.
      *
      * @param Destroy{$_singular_pascal} $request
      * @param {$_singular_pascal} ${$_singular_lcfirst}
