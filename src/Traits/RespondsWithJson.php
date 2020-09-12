@@ -96,7 +96,7 @@ trait RespondsWithJson
      */
     protected function respond(array $data, ?array $headers = []): JsonResponse
     {
-        return IlluminateResponse::json($data, $this->statusCode(), $headers);
+        return IlluminateResponse::json($data, $this->getStatusCode(), $headers);
     }
 
     /**
