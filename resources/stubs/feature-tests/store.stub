@@ -1,0 +1,30 @@
+<?php
+
+namespace Tests\Feature\{$_plural_pascal};
+
+use App\Models\{$_singular_pascal};
+use App\Transformers\{$_singular_pascal}Transformer;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class Store{$_plural_pascal}Test extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */
+    public function it_stores_a_{$_singular_snake}()
+    {
+        $attributes = factory({$_singular_pascal}::class)->raw();
+
+        $response = $this->json('post', 'api/{$_plural_kebab}', $attributes)
+            ->assertStatus(201)
+            ->assertJsonStructure(['data' => []]);
+
+        $this->assertDatabaseHas('{$_plural_snake}', $attributes);
+
+        ${$_singular_camel} = {$_singular_pascal}::where($attributes)->first();
+        $json{$_singular_pascal} = fractal(${$_singular_camel}, new {$_singular_pascal}Transformer)->toArray();
+
+        $response->assertJsonFragment($json{$_singular_pascal});
+    }
+}
