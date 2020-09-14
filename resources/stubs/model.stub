@@ -5,11 +5,10 @@ namespace App\Models;
 use Firevel\ApiResourceGenerator\Traits\Sortable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class {$_singular_pascal} extends Model
 {
-    use SoftDeletes, Sortable;
+    use Sortable;
 
     /**
      * The attributes that are mass assignable.
