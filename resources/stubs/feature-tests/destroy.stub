@@ -11,7 +11,7 @@ class Destroy{$_plural_pascal}Test extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function a_{$_singular_snake}_can_be_deleted()
+    public function it_destroys_a_{$_singular_snake}()
     {
         ${$_singular_camel} = factory({$_singular_pascal}::class)->create();
 
