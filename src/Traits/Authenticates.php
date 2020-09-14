@@ -6,7 +6,7 @@ use App\Models\User;
 
 trait Authenticates
 {
-    protected function authenticate(?User $user): self
+    protected function authenticate(?User $user = null): self
     {
         $user = $user ?? factory(User::class)->create();
 
