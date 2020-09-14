@@ -1,0 +1,30 @@
+<?php
+
+namespace Tests\Feature\Dogs;
+
+use App\Models\Dog;
+use App\Transformers\DogTransformer;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class UpdateDogsTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */
+    public function it_updates_a_dog()
+    {
+        $dog = factory(Dog::class)->create();
+        $attributes = factory(Dog::class)->raw();
+
+        $response = $this->json('put', "api/dogs/{$dog->getRouteKey()}", $attributes)
+            ->assertStatus(200)
+            ->assertJsonStructure(['data' => []]);
+
+        $this->assertDatabaseHas('dogs', $attributes);
+
+        $jsonDog = fractal($dog->refresh(), new DogTransformer)->toArray();
+
+        $response->assertJsonFragment($jsonDog);
+    }
+}
