@@ -4,12 +4,13 @@ namespace Tests\Feature\{$_plural_pascal};
 
 use App\Models\{$_singular_pascal};
 use App\Transformers\{$_singular_pascal}Transformer;
+use Firevel\ApiResourceGenerator\Traits\Authenticates;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class Store{$_plural_pascal}Test extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, Authenticates;
 
     /** @test */
     public function it_stores_a_{$_singular_snake}()
