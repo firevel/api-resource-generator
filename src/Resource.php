@@ -77,6 +77,16 @@ class Resource implements Arrayable
     }
 
     /**
+     * Get singular resource name in snake case.
+     *
+     * @return string
+     */
+    public function singularSnake(): string
+    {
+        return Str::snake($this->singular());
+    }
+
+    /**
      * Get plural resource name in snake case.
      *
      * @return string
@@ -126,6 +136,15 @@ class Resource implements Arrayable
     }
 
     /**
+     * Get plural resource name in kebab case.
+     * @return string
+     */
+    public function pluralKebab(): string
+    {
+        return Str::kebab($this->plural());
+    }
+
+    /**
      * Get all forms of the resource name as an array.
      *
      * @return array
@@ -138,11 +157,13 @@ class Resource implements Arrayable
             '{$_plural}' => $this->plural(),
             '{$_singular_camel}' => $this->singularCamel(),
             '{$_plural_camel}' => $this->pluralCamel(),
+            '{$_singular_snake}' => $this->singularSnake(),
             '{$_plural_snake}' => $this->pluralSnake(),
             '{$_singular_pascal}' => $this->singularPascal(),
             '{$_plural_pascal}' => $this->pluralPascal(),
             '{$_singular_lcfirst}' => $this->singularLowercaseFirst(),
             '{$_plural_lcfirst}' => $this->pluralLowercaseFirst(),
+            '{$_plural_kebab}' => $this->pluralKebab(),
         ];
     }
 }

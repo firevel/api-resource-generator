@@ -69,6 +69,18 @@ class ResourceTest extends TestCase
     }
 
     /** @test */
+    public function it_has_a_singular_name_in_snakecase(): void
+    {
+        $name = $this->faker->sentence;
+
+        $sut = new Resource($name);
+
+        $singularInSnake = Str::snake(Str::singular($name));
+
+        $this->assertEquals($singularInSnake, $sut->singularSnake());
+    }
+
+    /** @test */
     public function it_has_a_pluralized_name_in_snakecase(): void
     {
         $name = $this->faker->sentence;
@@ -128,6 +140,19 @@ class ResourceTest extends TestCase
         $this->assertEquals($pluralLcFirst, $sut->pluralLowercaseFirst());
     }
 
+
+    /** @test */
+    public function it_has_a_pluralized_name_in_kebab_case(): void
+    {
+        $name = $this->faker->sentence;
+
+        $sut = new Resource($name);
+
+        $pluralKebab = Str::kebab(Str::plural($name));
+
+        $this->assertEquals($pluralKebab, $sut->pluralKebab());
+    }
+
     /** @test */
     public function it_can_be_converted_to_an_array(): void
     {
@@ -141,11 +166,13 @@ class ResourceTest extends TestCase
             '{$_plural}' => $sut->plural(),
             '{$_singular_camel}' => $sut->singularCamel(),
             '{$_plural_camel}' => $sut->pluralCamel(),
+            '{$_singular_snake}' => $sut->singularSnake(),
             '{$_plural_snake}' => $sut->pluralSnake(),
             '{$_singular_pascal}' => $sut->singularPascal(),
             '{$_plural_pascal}' => $sut->pluralPascal(),
             '{$_singular_lcfirst}' => $sut->singularLowercaseFirst(),
             '{$_plural_lcfirst}' => $sut->pluralLowercaseFirst(),
+            '{$_plural_kebab}' => $sut->pluralKebab(),
         ], $sut->toArray());
     }
 }

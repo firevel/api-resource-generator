@@ -11,6 +11,7 @@ use App\Http\Requests\{$_singular_pascal}\Update{$_singular_pascal};
 use App\Models\{$_singular_pascal};
 use App\Transformers\{$_singular_pascal}Transformer;
 use Firevel\ApiResourceGenerator\Traits\RespondsWithJson;
+use Illuminate\Support\Facades\Response;
 
 class {$_plural_pascal}Controller extends Controller
 {
@@ -26,6 +27,8 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function __construct({$_singular_pascal}Transformer $transformer)
     {
+        $this->middleware('auth:api');
+
         $this->transformer = $transformer;
 
         $this->authorizeResource({$_singular_pascal}::class, '{$_singular_camel}');
@@ -60,12 +63,11 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function store(Store{$_singular_pascal} $request)
     {
-        ${$_singular_lcfirst} = {$_singular_pascal}::make($request->validated());
-        ${$_singular_lcfirst}->save();
+        ${$_singular_lcfirst} = {$_singular_pascal}::create($request->validated());
 
         return fractal(${$_singular_lcfirst}, $this->transformer)
             ->parseIncludes($request->get('include'))
-            ->respond();
+            ->respond(201);
     }
 
     /**
@@ -108,8 +110,8 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function destroy(Destroy{$_singular_pascal} $request, {$_singular_pascal} ${$_singular_lcfirst})
     {
-        if (${$_singular_lcfirst}->delete()) {
-            return $this->respondSuccess();
-        }
+        ${$_singular_lcfirst}->delete();
+
+        return Response::json(null, 204);
     }
 }
