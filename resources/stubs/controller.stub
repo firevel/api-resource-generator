@@ -41,7 +41,7 @@ class {$_plural_pascal}Controller extends Controller
     public function index(Index{$_plural_pascal} $request)
     {
         ${$_plural_lcfirst} = {$_singular_pascal}::filter($request->filter)
-            ->visibleBy($request->user())
+            // ->visibleBy($request->user())
             ->with($request->getIncludes())
             ->sort($request->getSort())
             ->paginate(
