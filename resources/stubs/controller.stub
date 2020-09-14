@@ -29,7 +29,7 @@ class {$_plural_pascal}Controller extends Controller
     {
         $this->transformer = $transformer;
 
-        $this->authorizeResource({$_singular_pascal}::class, '{$_singular_camel}');
+        // $this->authorizeResource({$_singular_pascal}::class, '{$_singular_camel}');
     }
 
     /**
