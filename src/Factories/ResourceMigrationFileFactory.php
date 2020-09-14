@@ -20,7 +20,7 @@ class ResourceMigrationFileFactory implements ResourceFileFactory
     {
         Artisan::call('make:migration', [
             'name' => "create_{$resource->pluralSnake()}_table",
-            '--table' => $resource->pluralSnake(),
+            '--create' => $resource->pluralSnake(),
         ]);
     }
 }

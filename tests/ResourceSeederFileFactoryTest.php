@@ -22,7 +22,7 @@ class ResourceSeederFileFactoryTest extends TestCase
         StubBuilder::shouldReceive('build')->once();
 
         DirectoryMaker::shouldReceive('findOrMake')
-            ->with(database_path('seeders'))
+            ->with(database_path('seeds'))
             ->once();
 
         ResourceSeederFileFactory::handle($resource);
@@ -54,7 +54,7 @@ class ResourceSeederFileFactoryTest extends TestCase
         StubBuilder::shouldReceive('build')->andReturn($content)->once();
 
         FileMaker::shouldReceive('make')
-            ->with(database_path("seeders/{$resource->pluralPascal()}TableSeeder.php"), $content)
+            ->with(database_path("seeds/{$resource->pluralPascal()}Seeder.php"), $content)
             ->once();
 
         ResourceSeederFileFactory::handle($resource);

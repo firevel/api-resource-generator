@@ -3,7 +3,7 @@
 use App\Models\{$_singular_pascal};
 use Illuminate\Database\Seeder;
 
-class {$_plural_pascal}TableSeeder extends Seeder
+class {$_plural_pascal}Seeder extends Seeder
 {
     /**
      * Run the database seeds.
