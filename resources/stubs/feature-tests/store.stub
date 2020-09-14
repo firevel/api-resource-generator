@@ -16,7 +16,8 @@ class Store{$_plural_pascal}Test extends TestCase
     {
         $attributes = factory({$_singular_pascal}::class)->raw();
 
-        $response = $this->json('post', 'api/{$_plural_kebab}', $attributes)
+        $response = $this->authenticate()
+            ->json('post', 'api/{$_plural_kebab}', $attributes)
             ->assertStatus(201)
             ->assertJsonStructure(['data' => []]);
 
