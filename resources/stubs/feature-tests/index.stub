@@ -12,7 +12,7 @@ class Index{$_plural_pascal}Test extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_lists_all_{$_singular_snake}()
+    public function it_lists_all_{$_plural_snake}()
     {
         ${$_plural_camel} = factory({$_singular_pascal}::class, 2)->create();
         $json{$_plural_pascal} = fractal(${$_plural_camel}, new {$_singular_pascal}Transformer)->toArray();
