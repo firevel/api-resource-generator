@@ -24,5 +24,9 @@ return [
         'UpdateRequest',
         'StoreRequest',
         'DestroyFeatureTest',
+        'IndexFeatureTest',
+        'ShowFeatureTest',
+        'UpdateFeatureTest',
+        'StoreFeatureTest',
     ]
 ];
