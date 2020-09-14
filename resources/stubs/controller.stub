@@ -61,8 +61,7 @@ class {$_plural_pascal}Controller extends Controller
      */
     public function store(Store{$_singular_pascal} $request)
     {
-        ${$_singular_lcfirst} = {$_singular_pascal}::make($request->validated());
-        ${$_singular_lcfirst}->save();
+        ${$_singular_lcfirst} = {$_singular_pascal}::create($request->validated());
 
         return fractal(${$_singular_lcfirst}, $this->transformer)
             ->parseIncludes($request->get('include'))
