@@ -1,0 +1,25 @@
+<?php
+
+namespace Tests\Feature\{$_plural_pascal};
+
+use App\Models\{$_singular_pascal};
+use App\Transformers\{$_singular_pascal}Transformer;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class Show{$_plural_pascal}Test extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */
+    public function it_shows_a_{$_singular_snake}()
+    {
+        ${$_singular_camel} = factory({$_singular_pascal}::class)->create();
+        $json{$_singular_pascal} = fractal(${$_singular_camel}, new {$_singular_pascal}Transformer)->toArray();
+
+        $this->json('get', "api/{$_plural_kebab}/{${$_singular_camel}->getRouteKey()}")
+            ->assertStatus(200)
+            ->assertJsonStructure(['data' => []])
+            ->assertJsonFragment($json{$_singular_pascal});
+    }
+}
