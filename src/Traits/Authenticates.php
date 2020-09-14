@@ -10,7 +10,7 @@ trait Authenticates
     {
         $user = $user ?? factory(User::class)->create();
 
-        $this->be($user);
+        $this->actingAs($user, 'api');
 
         return $this;
     }
