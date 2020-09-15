@@ -3,6 +3,7 @@
 namespace Firevel\ApiResourceGenerator\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 /**
  * Trait Sortable
@@ -22,7 +23,7 @@ trait Sortable
         foreach ($sortingAttributes as $attribute) {
             $sortingDirection = strpos($attribute, '-') === 0 ? 'desc' : 'asc';
 
-            $query->orderBy($attribute, $sortingDirection);
+            $query->orderBy(Str::slug($attribute, '_'), $sortingDirection);
         }
 
         return $query;
