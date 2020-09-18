@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Models;
+
+use Firevel\ApiResourceGenerator\Traits\Sortable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+
+class {$_singular_pascal} extends Model
+{
+    use Sortable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [];
+
+    /**
+     * Json objects
+     *
+     * @var array
+     */
+    protected $casts = [];
+
+    /**
+     * Scope a query to apply filters.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param array $filters
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFilter($query, $filters)
+    {
+        if (empty($filters)) {
+            return $query;
+        }
+
+        foreach ($filters as $filterKey => $filterValue) {
+            switch ($filterKey) {
+                case '':
+                    // $query->where('', "");
+                    break;
+            }
+        }
+        return $query;
+    }
+
+    /**
+     * Scope a query to rows visible by user.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param Authenticatable $user
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeVisibleBy($query, Authenticatable $user)
+    {
+        return $query;
+    }
+}

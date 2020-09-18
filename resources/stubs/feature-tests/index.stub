@@ -1,0 +1,27 @@
+<?php
+
+namespace Tests\Feature\{$_plural_pascal};
+
+use App\Models\{$_singular_pascal};
+use App\Transformers\{$_singular_pascal}Transformer;
+use Firevel\ApiResourceGenerator\Traits\Authenticates;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class Index{$_plural_pascal}Test extends TestCase
+{
+    use RefreshDatabase, Authenticates;
+
+    /** @test */
+    public function it_lists_all_{$_plural_snake}()
+    {
+        ${$_plural_camel} = factory({$_singular_pascal}::class, 2)->create();
+        $json{$_plural_pascal} = fractal(${$_plural_camel}, new {$_singular_pascal}Transformer)->toArray();
+
+        $this->authenticate()
+            ->json('get', 'api/{$_plural_kebab}')
+            ->assertStatus(200)
+            ->assertJsonStructure(['data' => []])
+            ->assertJsonFragment($json{$_plural_pascal});
+    }
+}

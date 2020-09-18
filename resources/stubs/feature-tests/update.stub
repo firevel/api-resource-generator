@@ -1,0 +1,32 @@
+<?php
+
+namespace Tests\Feature\{$_plural_pascal};
+
+use App\Models\{$_singular_pascal};
+use App\Transformers\{$_singular_pascal}Transformer;
+use Firevel\ApiResourceGenerator\Traits\Authenticates;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class Update{$_plural_pascal}Test extends TestCase
+{
+    use RefreshDatabase, Authenticates;
+
+    /** @test */
+    public function it_updates_a_{$_singular_snake}()
+    {
+        ${$_singular_camel} = factory({$_singular_pascal}::class)->create();
+        $attributes = factory({$_singular_pascal}::class)->raw();
+
+        $response = $this->authenticate()
+            ->json('put', "api/{$_plural_kebab}/{${$_singular_camel}->getRouteKey()}", $attributes)
+            ->assertStatus(200)
+            ->assertJsonStructure(['data' => []]);
+
+        $this->assertDatabaseHas('{$_plural_snake}', $attributes);
+
+        $json{$_singular_pascal} = fractal(${$_singular_camel}->refresh(), new {$_singular_pascal}Transformer)->toArray();
+
+        $response->assertJsonFragment($json{$_singular_pascal});
+    }
+}
