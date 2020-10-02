@@ -12,7 +12,6 @@ return [
     'types' => [
         'Model',
         'Controller',
-        'Migration',
         'UnitTest',
         'Factory',
         'Transformer',
@@ -28,5 +27,6 @@ return [
         'ShowFeatureTest',
         'UpdateFeatureTest',
         'StoreFeatureTest',
+        'Migration',
     ]
 ];
