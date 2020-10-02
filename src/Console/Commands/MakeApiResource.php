@@ -53,8 +53,8 @@ class MakeApiResource extends Command
         $this->info("1. Setup migration database/migrations/create_{$resource->pluralSnake()}_table.php");
         $this->info("2. Setup \$fillables in app/Models/{$resource->singularPascal()}.php");
         $this->info("3. Setup the transformer at app/Transformers/{$resource->singularPascal()}Transformer.php");
-        $this->info("4. Setup permissions in app/Policies/{$resource->pluralPascal()}Policy::class");
-        $this->info("5. Register the policy: {$resource->pluralPascal()}::class => {$resource->pluralPascal()}Policy::class.");
+        $this->info("4. Setup permissions in app/Policies/{$resource->singularPascal()}Policy::class");
+        $this->info("5. Register the policy: {$resource->singularPascal()}::class => {$resource->singularPascal()}Policy::class.");
         $this->info("6. Register the API route: Route::apiResource('{$resource->pluralSnake()}', '{$resource->pluralPascal()}Controller');.");
         $this->info("\n");
         $this->info('Optional:');
