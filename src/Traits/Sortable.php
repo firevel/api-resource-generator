@@ -2,7 +2,6 @@
 
 namespace Firevel\ApiResourceGenerator\Traits;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 
 /**
@@ -18,7 +17,7 @@ trait Sortable
      * @param array $sortingAttributes
      * @return Builder
      */
-    public function scopeSort(Builder $query, array $sortingAttributes): Builder
+    public function scopeSort($query, array $sortingAttributes)
     {
         foreach ($sortingAttributes as $attribute) {
             $sortingDirection = strpos($attribute, '-') === 0 ? 'desc' : 'asc';
