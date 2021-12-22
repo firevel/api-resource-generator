@@ -13,7 +13,7 @@
     "require": {
         "php": ">=7.1.3",
         "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0",
-        "spatie/laravel-fractal": "dev-master"
+        "spatie/laravel-fractal": "dev-main"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
