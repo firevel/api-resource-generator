@@ -15,12 +15,6 @@ php artisan vendor:publish --provider="Firevel\ApiResourceGenerator\ServiceProvi
 php artisan make:api-resource {name}
 ```
 
-### Testing
-
-``` bash
-composer test
-```
-
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
