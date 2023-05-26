@@ -20,7 +20,7 @@ class MakeApiResource extends Command
      *
      * @var string
      */
-    protected $signature = 'make:api-resource {name}';
+    protected $signature = 'make:api-resource {name} {--only=}';
 
     /**
      * The console command description.
@@ -50,6 +50,12 @@ class MakeApiResource extends Command
 
         $resource = new Resource($name);
         $geneators = config('api-resource-generator.generators');
+
+        if (!empty($this->option('only'))) {
+            $only = explode(',', $this->option('only'));
+            $geneators = array_intersect_key($geneators, array_fill_keys($only, ''));
+        }
+
         $geneator = new ResourceGenerator($resource, $geneators);
         $geneator->setLogger($this);
         $geneator->generate();
