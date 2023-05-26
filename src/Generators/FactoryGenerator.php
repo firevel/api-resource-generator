@@ -9,11 +9,12 @@ class FactoryGenerator extends BaseGenerator
     public function generate()
     {
         $resource = $this->resource();
+        $name = $resource->name();
 
         $this->artisan(
             'make:factory',
             [
-                'name' => $resource->name(),
+                'name' => $name,
             ]
         );
         $this->logger()->info("# Factory created: {$name}Factory");

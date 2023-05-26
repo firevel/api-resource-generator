@@ -13,5 +13,6 @@ return [
        'factory' => \Firevel\ApiResourceGenerator\Generators\FactoryGenerator::class,
        'seeder' => \Firevel\ApiResourceGenerator\Generators\SeederGenerator::class,
        'policy' => \Firevel\ApiResourceGenerator\Generators\PolicyGenerator::class,
+       'route' => \Firevel\ApiResourceGenerator\Generators\RouteGenerator::class,
     ]
 ];
