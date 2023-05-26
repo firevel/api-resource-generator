@@ -16,7 +16,7 @@ class PolicyGenerator extends BaseGenerator
         $path = app_path('Policies') . '/' . "{$resource->singularPascal()}Policy.php";
 
         $this->createFile($path, $source);
-        $this->logger()->info("# Policy {$path} created.");
-        $this->logger()->info('- Optional: set policies.');
+        $this->logger()->info("# Policy created: {$path}");
+        $this->logger()->info('- [Optional] Set policies https://laravel.com/docs/authorization#writing-policies');
     }
 }

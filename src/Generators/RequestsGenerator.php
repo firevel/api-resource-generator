@@ -23,9 +23,10 @@ class RequestsGenerator extends BaseGenerator
             $this->logger()->info($action .': ' .$path);
 
             $this->createFile($path, $source);
-            $this->logger()->info("# Request {$path} created.");
-            $this->logger()->info('- Required: set rules (https://laravel.com/docs/validation#available-validation-rules).');
-            $this->logger()->info('- Optional: set authorize() if validation is based on request content.');
+            $this->logger()->info("# Request created: {$path}");
+            $this->logger()->info('- [Required] Set rules');
+            $this->logger()->info('  - Validation rules https://laravel.com/docs/validation#available-validation-rules');
+            $this->logger()->info('- [Optional] Set authorize() if validation is based on request content.');
         }
    }
 

@@ -16,6 +16,6 @@ class ControllerGenerator extends BaseGenerator
         $path = app_path('Http/Controllers/Api') . '/' . "{$resource->pluralPascal()}Controller.php";
 
         $this->createFile($path, $source);
-        $this->logger()->info("# Controller created.");
+        $this->logger()->info("# Controller created: $path");
     }
 }

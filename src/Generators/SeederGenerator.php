@@ -17,7 +17,8 @@ class SeederGenerator extends BaseGenerator
                 'name' => $name,
             ]
         );
-        $this->logger()->info("# Seeder {$name} created.");
-        $this->logger()->info("- Optional: Add factory to seeder. Example: {$name}::factory()->count(50)->create()";
+        $this->logger()->info("# Seeder created: {$name}");
+        $this->logger()->info("- [Optional] Add factory to seeder");
+        $this->logger()->info("  - Example: {$name}::factory()->count(50)->create()");
     }
 }

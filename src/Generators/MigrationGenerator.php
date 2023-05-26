@@ -18,7 +18,8 @@ class MigrationGenerator extends BaseGenerator
                 '--create' => $resource->pluralSnake(),
             ]
         );
-        $this->logger()->info("# Migration {$name} created.");
-        $this->logger()->info('- Required: Set migration columns (https://laravel.com/docs/migrations#available-column-types).');
+        $this->logger()->info("# Migration created: {$name}");
+        $this->logger()->info('- [Required] Set migration');
+        $this->logger()->info('  - Available column types https://laravel.com/docs/migrations#available-column-types)');
     }
 }

@@ -17,7 +17,9 @@ class TransformerGenerator extends BaseGenerator
                 'name' => $name,
             ]
         );
-        $this->logger()->info("# Transformer {$name} created.");
-        $this->logger()->info('- Optional: Set transformer fields.');
+        $this->logger()->info("# Transformer created: {$name}");
+        $this->logger()->info('- [Optional] Set transformer fields');
+        $this->logger()->info('- [Optional] Set $availableIncludes fields');
+        $this->logger()->info('  - Documentation https://fractal.thephpleague.com/transformers/#including-data');
     }
 }

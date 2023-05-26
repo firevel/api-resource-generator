@@ -16,7 +16,8 @@ class FactoryGenerator extends BaseGenerator
                 'name' => $resource->name(),
             ]
         );
-        $this->logger()->info("# Factory {$name} created.");
-        $this->logger()->info('- Optional: set factory fields.');
+        $this->logger()->info("# Factory created: {$name}Factory");
+        $this->logger()->info('- [Optional] Set factory fields.');
+        $this->logger()->info('  - Available formatters https://fakerphp.github.io/');
     }
 }
