@@ -12,6 +12,6 @@ class {$_plural_pascal}Seeder extends Seeder
      */
     public function run()
     {
-        factory({$_singular_pascal}::class, 10)->create();
+        {$_singular_pascal}::factory()->count(10)->create();
     }
 }

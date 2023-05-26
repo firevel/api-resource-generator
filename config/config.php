@@ -2,31 +2,16 @@
 
 return [
     /*
-     * Path to the resource stubs.
+     * Generators used during resource generation.
      */
-    'stubs_path' => resource_path('stubs'),
-
-    /*
-     * Resource files to be generated.
-     */
-    'types' => [
-        'Model',
-        'Controller',
-        'UnitTest',
-        'Factory',
-        'Transformer',
-        'Policy',
-        'Seeder',
-        'IndexRequest',
-        'ShowRequest',
-        'DestroyRequest',
-        'UpdateRequest',
-        'StoreRequest',
-        'DestroyFeatureTest',
-        'IndexFeatureTest',
-        'ShowFeatureTest',
-        'UpdateFeatureTest',
-        'StoreFeatureTest',
-        'Migration',
+    'generators' => [
+       'model' => \Firevel\ApiResourceGenerator\Generators\ModelGenerator::class,
+       'migration' => \Firevel\ApiResourceGenerator\Generators\MigrationGenerator::class,
+       'transformer' => \Firevel\ApiResourceGenerator\Generators\TransformerGenerator::class,
+       'controller' => \Firevel\ApiResourceGenerator\Generators\ControllerGenerator::class,
+       'requests' => \Firevel\ApiResourceGenerator\Generators\RequestsGenerator::class,
+       'factory' => \Firevel\ApiResourceGenerator\Generators\FactoryGenerator::class,
+       'seeder' => \Firevel\ApiResourceGenerator\Generators\SeederGenerator::class,
+       'policy' => \Firevel\ApiResourceGenerator\Generators\PolicyGenerator::class,
     ]
 ];
