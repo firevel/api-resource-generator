@@ -20,8 +20,6 @@ class RequestsGenerator extends BaseGenerator
                 $filename = $resource->pluralPascal();
             }
             $path = app_path("Http/Requests/Api/{$resource->singularPascal()}") . '/' . ucfirst($action). "$filename.php";
-            $this->logger()->info($action .': ' .$path);
-
             $this->createFile($path, $source);
             $this->logger()->info("# Request created: {$path}");
             $this->logger()->info('- [Required] Set rules');
