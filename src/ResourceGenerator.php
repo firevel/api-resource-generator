@@ -32,6 +32,7 @@ class ResourceGenerator
             $generatorInstance = new $class($this->resource);
             $generatorInstance->setLogger($this->logger());
             $generatorInstance->generate();
+            $this->logger()->info('');
         }
     }
 }
