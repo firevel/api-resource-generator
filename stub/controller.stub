@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\{$_singular_pascal}\Destroy{$_singular_pascal};
-use App\Http\Requests\{$_singular_pascal}\Index{$_plural_pascal};
-use App\Http\Requests\{$_singular_pascal}\Store{$_singular_pascal};
-use App\Http\Requests\{$_singular_pascal}\Show{$_singular_pascal};
-use App\Http\Requests\{$_singular_pascal}\Update{$_singular_pascal};
+use App\Http\Requests\Api\{$_singular_pascal}\Destroy{$_singular_pascal};
+use App\Http\Requests\Api\{$_singular_pascal}\Index{$_plural_pascal};
+use App\Http\Requests\Api\{$_singular_pascal}\Store{$_singular_pascal};
+use App\Http\Requests\Api\{$_singular_pascal}\Show{$_singular_pascal};
+use App\Http\Requests\Api\{$_singular_pascal}\Update{$_singular_pascal};
 use App\Models\{$_singular_pascal};
 use App\Transformers\{$_singular_pascal}Transformer;
 use Firevel\ApiResourceGenerator\Traits\RespondsWithJson;
