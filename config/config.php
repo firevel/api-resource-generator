@@ -5,8 +5,8 @@ return [
      * Generators used during resource generation.
      */
     'generators' => [
-       'model' => \Firevel\ApiResourceGenerator\Generators\ModelGenerator::class,
        'migration' => \Firevel\ApiResourceGenerator\Generators\MigrationGenerator::class,
+       'model' => \Firevel\ApiResourceGenerator\Generators\ModelGenerator::class,
        'transformer' => \Firevel\ApiResourceGenerator\Generators\TransformerGenerator::class,
        'controller' => \Firevel\ApiResourceGenerator\Generators\ControllerGenerator::class,
        'requests' => \Firevel\ApiResourceGenerator\Generators\RequestsGenerator::class,
