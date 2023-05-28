@@ -12,22 +12,23 @@ class {$_singular_pascal}Transformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $defaultIncludes = [
+    protected array $defaultIncludes = [
         //
     ];
-
+    
     /**
      * List of resources possible to include
      *
      * @var array
      */
-    protected $availableIncludes = [
+    protected array $availableIncludes = [
         //
     ];
-
+    
     /**
      * A Fractal transformer.
      *
+     * @param  {$_singular_pascal} ${$_singular_lcfirst}
      * @return array
      */
     public function transform({$_singular_pascal} ${$_singular_lcfirst})
