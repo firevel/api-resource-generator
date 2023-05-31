@@ -25,10 +25,6 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('api-resource-generator.php'),
         ], 'config');
-
-        $this->publishes([
-            __DIR__.'/../resources/stubs' => resource_path('stubs'),
-        ]);
     }
 
     /**
@@ -37,17 +33,5 @@ class ServiceProvider extends IlluminateServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'api-resource-generator');
-
-        $this->app->bind('StubBuilder', function () {
-            return new StubBuilder();
-        });
-
-        $this->app->bind('FileMaker', function () {
-            return new FileMaker();
-        });
-
-        $this->app->bind('DirectoryMaker', function () {
-            return new DirectoryMaker();
-        });
     }
 }

@@ -4,8 +4,9 @@ namespace Firevel\ApiResourceGenerator\Console\Commands;
 
 use Firevel\ApiResourceGenerator\Factories\ResourceControllerFileFactory;
 use Firevel\ApiResourceGenerator\Factories\ResourceModelFileFactory;
-use Illuminate\Console\Command;
 use Firevel\ApiResourceGenerator\Resource;
+use Firevel\ApiResourceGenerator\ResourceGenerator;
+use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
 /**
@@ -19,7 +20,7 @@ class MakeApiResource extends Command
      *
      * @var string
      */
-    protected $signature = 'make:api-resource {name}';
+    protected $signature = 'make:api-resource {name} {--only=}';
 
     /**
      * The console command description.
@@ -33,35 +34,30 @@ class MakeApiResource extends Command
      *
      * @return mixed
      */
-    public function handle(): void
+    public function handle()
     {
         $name = $this->argument('name');
 
-        $resource = new Resource($name);
-        $resourceFileTypes = config('api-resource-generator.types');
-
-        foreach ($resourceFileTypes as $type) {
-            $name = "\\Firevel\\ApiResourceGenerator\\Factories\\Resource{$type}FileFactory";
-
-            ($name)::handle($resource);
-
-            $this->info("{$resource->singularPascal()} {$type} created.");
+        if (Str::plural($name) == Str::singular($name)) {
+            $this->error("{$name} is not countable and cant be used as resource name");
+            return 1;
         }
 
-        $this->info("\n");
-        $this->info('To do:');
-        $this->info("1. Setup migration database/migrations/create_{$resource->pluralSnake()}_table.php");
-        $this->info("2. Setup \$fillables in app/Models/{$resource->singularPascal()}.php");
-        $this->info("3. Setup the transformer at app/Transformers/{$resource->singularPascal()}Transformer.php");
-        $this->info("4. Setup permissions in app/Policies/{$resource->singularPascal()}Policy::class");
-        $this->info("5. Register the policy: {$resource->singularPascal()}::class => {$resource->singularPascal()}Policy::class.");
-        $this->info("6. Register the API route: Route::apiResource('{$resource->pluralSnake()}', '{$resource->pluralPascal()}Controller');.");
-        $this->info("\n");
-        $this->info('Optional:');
-        $this->info("- Setup factory at database/factories/{$resource->singularPascal()}Factory.php");
-        $this->info("- Setup seeder at database/seeds/{$resource->pluralPascal()}Seeder.php");
-        $this->info("- Add {$resource->pluralPascal()}Seeder.php to database/seeds/DatabaseSeeder.php.");
-        $this->info("- Setup validation at Http/Requests/{$resource->singularPascal()}");
-        $this->info("- Setup unit tests at tests/Feature/{$resource->singularPascal()}");
+        if (ctype_lower($name[0])) {
+            $this->error("The name of the resource must begin with a capital letter (ex.: User, UserActions)");
+            return 1;
+        }
+
+        $resource = new Resource($name);
+        $geneators = config('api-resource-generator.generators');
+
+        if (!empty($this->option('only'))) {
+            $only = explode(',', $this->option('only'));
+            $geneators = array_intersect_key($geneators, array_fill_keys($only, ''));
+        }
+
+        $geneator = new ResourceGenerator($resource, $geneators);
+        $geneator->setLogger($this);
+        $geneator->generate();
     }
 }

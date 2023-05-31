@@ -15,23 +15,10 @@
         "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0|^9.0",
         "spatie/laravel-fractal": "^5.0|^6.0"
     },
-    "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.0"
-    },
     "autoload": {
         "psr-4": {
             "Firevel\\ApiResourceGenerator\\": "src"
         }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Firevel\\ApiResourceGenerator\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "cd vendor/bin && phpunit -c ..\\..\\phpunit.xml",
-        "test:coverage": "composer test -- --coverage-html coverage"
     },
     "config": {
         "sort-packages": true

@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Policies;
+
+use App\Models\{$_singular_pascal};
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class {$_singular_pascal}Policy
+{
+    use HandlesAuthorization;
+
+    /**
+     * Determine whether the user can view any models.
+     *
+     * @param Authenticatable $user
+     * @return mixed
+     */
+    public function viewAny(Authenticatable $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param Authenticatable $user
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return mixed
+     */
+    public function view(Authenticatable $user, {$_singular_pascal} ${$_singular_lcfirst})
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can create models.
+     *
+     * @param Authenticatable $user
+     * @return mixed
+     */
+    public function create(Authenticatable $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     *
+     * @param Authenticatable $user
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return mixed
+     */
+    public function update(Authenticatable $user, {$_singular_pascal} ${$_singular_lcfirst})
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param Authenticatable $user
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return mixed
+     */
+    public function delete(Authenticatable $user, {$_singular_pascal} ${$_singular_lcfirst})
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can restore the model.
+     *
+     * @param Authenticatable $user
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return mixed
+     */
+    public function restore(Authenticatable $user, {$_singular_pascal} ${$_singular_lcfirst})
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     *
+     * @param Authenticatable $user
+     * @param {$_singular_pascal} ${$_singular_lcfirst}
+     * @return mixed
+     */
+    public function forceDelete(Authenticatable $user, {$_singular_pascal} ${$_singular_lcfirst})
+    {
+        return true;
+    }
+}

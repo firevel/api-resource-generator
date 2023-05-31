@@ -14,7 +14,7 @@ class Resource implements Arrayable
     /**
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * Resource constructor.
@@ -31,7 +31,7 @@ class Resource implements Arrayable
      *
      * @return string
      */
-    public function raw(): string
+    public function name(): string
     {
         return $this->name;
     }
@@ -152,18 +152,18 @@ class Resource implements Arrayable
     public function toArray(): array
     {
         return [
-            '{$_name}' => $this->raw(),
-            '{$_singular}' => $this->singular(),
-            '{$_plural}' => $this->plural(),
-            '{$_singular_camel}' => $this->singularCamel(),
-            '{$_plural_camel}' => $this->pluralCamel(),
-            '{$_singular_snake}' => $this->singularSnake(),
-            '{$_plural_snake}' => $this->pluralSnake(),
-            '{$_singular_pascal}' => $this->singularPascal(),
-            '{$_plural_pascal}' => $this->pluralPascal(),
-            '{$_singular_lcfirst}' => $this->singularLowercaseFirst(),
-            '{$_plural_lcfirst}' => $this->pluralLowercaseFirst(),
-            '{$_plural_kebab}' => $this->pluralKebab(),
+            'name' => $this->name(),
+            'singular' => $this->singular(),
+            'plural' => $this->plural(),
+            'singular_camel' => $this->singularCamel(),
+            'plural_camel' => $this->pluralCamel(),
+            'singular_snake' => $this->singularSnake(),
+            'plural_snake' => $this->pluralSnake(),
+            'singular_pascal' => $this->singularPascal(),
+            'plural_pascal' => $this->pluralPascal(),
+            'singular_lcfirst' => $this->singularLowercaseFirst(),
+            'plural_lcfirst' => $this->pluralLowercaseFirst(),
+            'plural_kebab' => $this->pluralKebab(),
         ];
     }
 }
