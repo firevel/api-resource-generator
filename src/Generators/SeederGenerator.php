@@ -10,13 +10,11 @@ class SeederGenerator extends BaseGenerator
     {
         $resource = $this->resource();
         $name = $resource->name() . 'Seeder';
+        $stub = $this->getStub('seeder');
+        $source = $this->buildStub($stub, $resource->toArray());
+        $path = database_path('seeders') . '/' . "{$name}.php";
+        $this->createFile($path, $source);
 
-        $this->artisan(
-            'make:seeder',
-            [
-                'name' => $name,
-            ]
-        );
         $this->logger()->info("# Seeder created: {$name}");
         $this->logger()->info("- [Optional] Add factory to seeder");
         $this->logger()->info("  - Example: \\App\Models\\" . $resource->name() . "::factory()->count(50)->create();");

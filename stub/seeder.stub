@@ -1,6 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use App\Models\{$_singular_pascal};
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class {$_plural_pascal}Seeder extends Seeder
@@ -12,6 +15,6 @@ class {$_plural_pascal}Seeder extends Seeder
      */
     public function run()
     {
-        {$_singular_pascal}::factory()->count(10)->create();
+        {$_singular_pascal}::factory()->count(50)->create();
     }
 }
