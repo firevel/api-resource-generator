@@ -19,6 +19,12 @@ trait Sortable
      */
     public function scopeSort($query, array $sortingAttributes)
     {
+        $sortingAttributes = array_intersect_key($this->sortable, $sortingAttributes);
+
+        if (empty($sortingAttributes)) {
+            return $query;
+        }
+
         foreach ($sortingAttributes as $attribute) {
             $sortingDirection = strpos($attribute, '-') === 0 ? 'desc' : 'asc';
 
