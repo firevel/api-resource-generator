@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Firevel\ApiResourceGenerator\Traits\Filterable;
 use Firevel\ApiResourceGenerator\Traits\Sortable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class {$_singular_pascal} extends Model
 {
-    use Sortable, HasFactory;
+    use Sortable, HasFactory, Filterable;
 
     /**
      * The attributes that are mass assignable.
@@ -39,27 +40,13 @@ class {$_singular_pascal} extends Model
     ];
 
     /**
-     * Scope a query to apply filters.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param array $filters
-     * @return \Illuminate\Database\Eloquent\Builder
+     * Fields with filtering.
+     * 
+     * @var array
      */
-    public function scopeFilter($query, $filters)
-    {
-        if (empty($filters)) {
-            return $query;
-        }
-
-        foreach ($filters as $filterKey => $filterValue) {
-            switch ($filterKey) {
-                case '':
-                    // $query->where('', "");
-                    break;
-            }
-        }
-        return $query;
-    }
+    protected $filterable = [
+        'id' => 'id',
+    ];
 
     /**
      * Scope a query to rows visible by user.
