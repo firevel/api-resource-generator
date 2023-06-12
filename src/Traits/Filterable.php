@@ -17,11 +17,13 @@ trait Filterable
      * @var array
      */
     protected $allowedFilterOperators = [
-        '>=',
-        '<=',
-        '>',
-        '<',
-        '=',
+        '>=' => ['integer', 'date', 'datetime', 'id'],
+        '<=' => ['integer', 'date', 'datetime', 'id'],
+        '>' => ['integer', 'date', 'datetime', 'id'],
+        '<' => ['integer', 'date', 'datetime', 'id'],
+        '=' => ['integer', 'date', 'datetime', 'id', 'string'],
+        'like' => ['string'],
+        'in' => ['integer', 'id', 'string'],
     ];
 
     /**
@@ -43,8 +45,11 @@ trait Filterable
             if (is_array($filters[$filterName])) {
                 foreach ($filters[$filterName] as $operator => $filterValue) {
                     $operator = urldecode($operator);
-                    if (! in_array($operator, $this->allowedFilterOperators)) {
+                    if (! array_key_exists($operator, $this->allowedFilterOperators)) {
                         throw new \Exception('Illegal operator '.$operator);
+                    }
+                    if (! in_array($filterType, $this->allowedFilterOperators[$operator])) {
+                        throw new \Exception('Operator '.$operator.' is not allowed for ' . $filterType);
                     }
                     $this->applyFilterToQuery($filterType, $filterName, $filterValue, $operator, $query);
                 }
@@ -71,29 +76,36 @@ trait Filterable
             $operator = $this->defaultFilterOperator;
         }
 
+        // WHERE IN operator handling
+        if ($operator == 'in') {
+            if (is_array($filterValue)) {
+                $array = $filterValue;
+            } else {
+                $array = explode(',', $filterValue);
+            }
+            return $query->whereIn($filterName, $array);
+        }
+
         switch ($filterType) {
+            case 'id':
             case 'integer':
-                return $query->where($filterName, $operator, $filterValue);
+            case 'string':
+                $method = 'where';
                 break;
             case 'date':
-                return $query->whereDate($filterName, $operator, $filterValue);
+                $method = 'whereDate';
                 break;
             case 'datetime':
                 if (strlen($filterValue) == 10) {
-                    return $query->whereDate($filterName, $operator, $filterValue);
+                    $method = 'whereDate';
                 }
-
-                return $query->where($filterName, $operator, $filterValue);
-                break;
-            case 'id':
-                return $query->where($filterName, $operator, $filterValue);
-                break;
-            case 'string':
-                return $query->where($filterName, $operator, $filterValue);
+                $method = 'where';
                 break;
             default:
                 throw new \Exception('Unsupported filter type '.$filterType);
         }
+
+        return $query->$method($filterName, $operator, $filterValue);
     }
 
     /**
