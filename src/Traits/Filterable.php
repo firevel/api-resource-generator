@@ -95,4 +95,21 @@ trait Filterable
                 throw new \Exception('Unsupported filter type '.$filterType);
         }
     }
+
+    /**
+     * Scope a query to apply filters.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param array $filters
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFilter($query, $filters)
+    {
+        if (empty($filters)) {
+            return $query;
+        }
+
+        $this->applyFiltersToQuery($filters, $query);
+    }
 }
