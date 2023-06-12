@@ -111,5 +111,7 @@ trait Filterable
         }
 
         $this->applyFiltersToQuery($filters, $query);
+
+        return $query;
     }
 }
