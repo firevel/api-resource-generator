@@ -21,6 +21,7 @@ class ModelGenerator extends BaseGenerator
         $this->logger()->info('- [Optional] Set model $fillable (all fields allowed by default)');
         $this->logger()->info('- [Optional] Set model $casts (no casting by default)');
         $this->logger()->info('  - Allowed mutators https://laravel.com/docs/eloquent-mutators#attribute-casting');
+        $this->logger()->info('- [Optional] Set model $filterable');
         $this->logger()->info('- [Optional] Set model $sortable (all fields allowed by default)');
         $this->logger()->info('- [Optional] Set relationships');
         $this->logger()->info('  - Allowed relationships https://laravel.com/docs/eloquent-relationships');
