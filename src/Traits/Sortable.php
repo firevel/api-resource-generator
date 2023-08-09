@@ -19,7 +19,11 @@ trait Sortable
      */
     public function scopeSort($query, array $sortingAttributes)
     {
-        $sortingAttributes = array_intersect_key($this->sortable, $sortingAttributes);
+        $sortable = $this->sortable;
+        foreach ($sortable as $key) {
+            $sortable[] = '-' . $key; 
+        }
+        $sortingAttributes = array_intersect($sortable, $sortingAttributes);
 
         if (empty($sortingAttributes)) {
             return $query;
