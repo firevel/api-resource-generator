@@ -76,6 +76,13 @@ trait Filterable
             $operator = $this->defaultFilterOperator;
         }
 
+        if (strpos($filterName, '.')) {
+            if (substr_count($filterName, '.')>1) {
+                throw new \Exception('Maximum one level sub-query filtering supported.');
+            }
+            [$relationship, $filterName] = explode('.', $filterName);
+        }
+
         // WHERE IN operator handling
         if ($operator == 'in') {
             if (is_array($filterValue)) {
@@ -103,6 +110,15 @@ trait Filterable
                 break;
             default:
                 throw new \Exception('Unsupported filter type '.$filterType);
+        }
+
+        if (!empty($relationship)) {
+            return $query->whereHas(
+                $relationship,
+                function($query) use($method, $filterName, $operator, $filterValue) {
+                    $query->$method($filterName, $operator, $filterValue);
+                }
+            );
         }
 
         return $query->$method($filterName, $operator, $filterValue);
