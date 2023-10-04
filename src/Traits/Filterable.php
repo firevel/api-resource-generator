@@ -17,11 +17,11 @@ trait Filterable
      * @var array
      */
     protected $allowedFilterOperators = [
-        '>=' => ['integer', 'date', 'datetime', 'id'],
-        '<=' => ['integer', 'date', 'datetime', 'id'],
-        '>' => ['integer', 'date', 'datetime', 'id'],
-        '<' => ['integer', 'date', 'datetime', 'id'],
-        '=' => ['integer', 'date', 'datetime', 'id', 'string'],
+        '>=' => ['integer', 'date', 'datetime', 'id', 'relationship'],
+        '<=' => ['integer', 'date', 'datetime', 'id', 'relationship'],
+        '>' => ['integer', 'date', 'datetime', 'id', 'relationship'],
+        '<' => ['integer', 'date', 'datetime', 'id', 'relationship'],
+        '=' => ['integer', 'date', 'datetime', 'id', 'string', 'relationship', 'boolean'],
         'like' => ['string'],
         'in' => ['integer', 'id', 'string'],
     ];
@@ -97,6 +97,13 @@ trait Filterable
             case 'id':
             case 'integer':
             case 'string':
+                $method = 'where';
+                break;
+            case 'relationship':
+                $method = 'has';
+                break;
+            case 'boolean':
+                $filterValue = filter_var($filterValue, FILTER_VALIDATE_BOOLEAN);
                 $method = 'where';
                 break;
             case 'date':
