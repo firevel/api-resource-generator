@@ -2,6 +2,8 @@
 
 namespace Firevel\ApiResourceGenerator\Traits;
 
+use Illuminate\Support\Str;
+
 trait Filterable
 {
     /**
@@ -100,6 +102,7 @@ trait Filterable
                 $method = 'where';
                 break;
             case 'relationship':
+                $filterName = Str::camel($filterName);
                 $method = 'has';
                 break;
             case 'boolean':
